@@ -667,56 +667,7 @@ def comp_RMSE_tail(dat, dat_mem, operational_comp, greater, HRES_ground,quant=No
                 
                 else:
                     return S1_HRES, S1_pangu, S1_graphcast
-                
-                
-                if greater==True:
-                     variable_quant=theoretical[theoretical>np.quantile(theoretical,quant)]
-                     cos_weights_quant=cos_weights[theoretical>np.quantile(theoretical,quant)]
-                     
-                     if robust==True:
-                         lat=lat[theoretical>np.quantile(theoretical,quant)]
-                         lon=lon[theoretical>np.quantile(theoretical,quant)]
-                         time=time[theoretical>np.quantile(theoretical,quant)]
-                         
-                     
-                     if HRES_ground==True:
-                          HRES_truth_variable_quant=HRES_truth[theoretical>np.quantile(theoretical,quant)]
-            
-                     HRES_variable_quant=nwp_det[theoretical>np.quantile(theoretical,quant)]
-                     
-                     if operational_comp==False:    
-                         pangu_variable_quant=AI_det_1[theoretical>np.quantile(theoretical,quant)]
-                         fuxi_variable_quant=AI_det_2[theoretical>np.quantile(theoretical,quant)]
-                         graphcast_variable_quant=AI_det_3[theoretical>np.quantile(theoretical,quant)]
-                     
-                     else:
-                         pangu_variable_quant=AI_det_1[theoretical>np.quantile(theoretical,quant)]
-                         graphcast_variable_quant=AI_det_2[theoretical>np.quantile(theoretical,quant)]
-            
-                else:
-                     variable_quant=theoretical[theoretical<np.quantile(theoretical,quant)]
-                     cos_weights_quant=cos_weights[theoretical<np.quantile(theoretical,quant)]
-                     
-                     if robust==True:
-                         lat=lat[theoretical<np.quantile(theoretical,quant)]
-                         lon=lon[theoretical<np.quantile(theoretical,quant)]
-                         time=time[theoretical<np.quantile(theoretical,quant)]
-                     
-            
-                     if HRES_ground==True:
-                          HRES_truth_variable_quant=HRES_truth[theoretical<np.quantile(theoretical,quant)]
-            
-                     HRES_variable_quant=nwp_det[theoretical<np.quantile(theoretical,quant)]
-                     
-                     if operational_comp==False: 
-                         pangu_variable_quant=AI_det_1[theoretical<np.quantile(theoretical,quant)]
-                         fuxi_variable_quant=AI_det_2[theoretical<np.quantile(theoretical,quant)]
-                         graphcast_variable_quant=AI_det_3[theoretical<np.quantile(theoretical,quant)]
-                     else:
-                         pangu_variable_quant=AI_det_1[theoretical<np.quantile(theoretical,quant)]
-                         graphcast_variable_quant=AI_det_2[theoretical<np.quantile(theoretical,quant)]
-                
-                
+
         # Significance test vs HRES
 
         diff_pangu=sq_err_pangu-sq_err_HRES
